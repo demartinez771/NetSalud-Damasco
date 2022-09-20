@@ -1,3 +1,6 @@
+from django.test import TestCase
+
+# Create your tests here.
 from urllib import request
 from rest_framework import status, views
 from rest_framework.response import Response
