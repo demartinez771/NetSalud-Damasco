@@ -24,5 +24,7 @@ urlpatterns = [
     path('pSalud/', views.CrearPersonalSaludView.as_view()),
     path('familiar/', views.CrearFamiliarView.as_view()),
     path('paciente/', views.CrearPacienteView.as_view()),
+    path('hisCl/', views.CrearHistClView.as_view()),
+    path('signoVital/', views.CrearSignoVitalView.as_view()),
    
 ]

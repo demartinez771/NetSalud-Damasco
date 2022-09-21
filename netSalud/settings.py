@@ -102,10 +102,10 @@ WSGI_APPLICATION = 'netSalud.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'dep006ceor0vj4',
-    'USER': 'sryfpjlukxfccs',
-    'PASSWORD': '0b3f34934b116cb94f63f8b978cac14e53ac6a2dcf4b8ffcfb3398c6c917aa73',
-    'HOST': 'ec2-34-227-135-211.compute-1.amazonaws.com',
+    'NAME': 'd5houmio34sb6t',
+    'USER': 'hfhekwbwevhcyn',
+    'PASSWORD': '7d29303865d96b8bfe0ac1aace7546108342617c0fa24cc36bef9cb4e4977e33',
+    'HOST': 'ec2-3-214-2-141.compute-1.amazonaws.com',
     'PORT': '5432',
     }
 }
