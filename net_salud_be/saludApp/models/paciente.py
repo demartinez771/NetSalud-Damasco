@@ -7,5 +7,5 @@ class Paciente(models.Model):
     fecha_nac = models.DateField('Fecha Nacimiento')
     ciudad = models.CharField('Ciudad', max_length = 50)
     direccion = models.CharField('Dirección', max_length = 100)
-    username = models.ForeignKey(Usuario, unique=True, related_name='paciente', on_delete=models.CASCADE)
+    username = models.OneToOneField(Usuario, related_name='paciente', on_delete=models.CASCADE)
     pSalud_documento = models.ForeignKey(PersonalSalud, related_name='paciente', on_delete=models.CASCADE)

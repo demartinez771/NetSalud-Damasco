@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-fkz2hxg^)429usqo3px^is52@$u&=7#l-jzjcyfttxx45+c+8m
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'saludApp',
-    
+    'corsheaders',
+
 ]
 
 SIMPLE_JWT = {
@@ -61,16 +62,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     "corsheaders.middleware.CorsMiddleware",
 
 ]
 
 REST_FRAMEWORK = {
-            'DEFAULT_PERMISSION_CLASSES': (
-                'rest_framework.permissions.AllowAny',
-            ),
-            'DEFAULT_AUTHENTICATION_CLASSES': (
-                'rest_framework_simplejwt.authentication.JWTAuthentication',
-            )
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 
 ROOT_URLCONF = 'netSalud.urls'
@@ -101,12 +103,12 @@ WSGI_APPLICATION = 'netSalud.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'd5houmio34sb6t',
-    'USER': 'hfhekwbwevhcyn',
-    'PASSWORD': '7d29303865d96b8bfe0ac1aace7546108342617c0fa24cc36bef9cb4e4977e33',
-    'HOST': 'ec2-3-214-2-141.compute-1.amazonaws.com',
-    'PORT': '5432',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd5houmio34sb6t',
+        'USER': 'hfhekwbwevhcyn',
+        'PASSWORD': '7d29303865d96b8bfe0ac1aace7546108342617c0fa24cc36bef9cb4e4977e33',
+        'HOST': 'ec2-3-214-2-141.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
