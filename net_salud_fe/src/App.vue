@@ -41,6 +41,7 @@ h2{
 }
 #slogan{
   margin-left: 10px;
+  background-color: #42b983;
 }
 nav {
   padding: 30px;
