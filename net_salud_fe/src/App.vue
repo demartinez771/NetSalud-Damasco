@@ -1,20 +1,16 @@
 <script>
-import MiComponente from "./components/patientRecord.vue";
 
-export default {
-  name: "app",
-  components: {
-    MiComponente,
-},
-};
 </script>
 
 <template>
-  <div id="app" class="app">
-    <div class="header">
-      <img src="./assets/Logo.png" alt="">  
-      <h1>NetSalud</h1>
-      <h2>La salud a tus manos</h2>
+  <div id="app">
+    <div id="header">
+      <img src="./assets/Logo.png" alt="" width="70" height="70">  
+      <div id="slogan">
+        <h1>NetSalud</h1>
+        <h2>La salud a tus manos</h2>
+      </div>
+      
         <nav>
             <button v-if="is_auth" v-on:click="loadHome" > Inicio </button>
             <button v-if="is_auth" v-on:click="loadPatientRecord"> RegistroPaciente </button>
@@ -29,13 +25,23 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: kanit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  text-align: left;
+  color: #2E2D4D;
+  line-height: 0.3;
 }
-
+h2{
+  font-size: 20px;
+}
+#header {
+  flex-direction: row !important;
+  display: flex !important;
+}
+#slogan{
+  margin-left: 10px;
+}
 nav {
   padding: 30px;
 }

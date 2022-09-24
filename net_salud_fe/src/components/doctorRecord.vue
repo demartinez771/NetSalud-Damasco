@@ -1,9 +1,9 @@
 <script>
 export default {
-  name: "MyComponen2",
+  name: "prueba",
   data() {
     return {
-      subtitulo: "soy la verga",
+      subtitulo: "prueba",
     };
   },
   props: {
@@ -14,7 +14,7 @@ export default {
 
 <template>
   <div>
-    <h1>Este es Mi componente</h1>
+    <h1></h1>
     <h2>{{ this.title }}</h2>
   </div>
 </template>
