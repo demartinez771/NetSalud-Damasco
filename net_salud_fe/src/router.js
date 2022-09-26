@@ -6,11 +6,7 @@ import doctorRecord from "./components/doctorRecord";
 import familyRecord from "./components/familyRecord";
 import patientConsult from "./components/patientConsult";
 const routes = [
-  {
-    path: "/",
-    name: "root",
-    component: App,
-  },
+
   {
     path: "/auxiliar/inicio",
     name: "home",
