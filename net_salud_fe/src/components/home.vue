@@ -3,5 +3,7 @@
 </script>
 
 <template>
-    <div>Hola mundo</div>
+    <div>
+       <div></div>
+        Bienvenido al perfil de auxiliar</div>
 </template>
