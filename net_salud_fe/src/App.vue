@@ -1,97 +1,145 @@
-<script></script>
+<script>
+export default {
+  methods: {
+    loadHome: function () {
+      this.$router.push({ name: "home" });
+    },
+    loadPatientRecord: function () {
+      this.$router.push({ name: "patientRecord" });
+    },
+  },
+};
+</script>
 
 <template>
-  <div id="app">
-    <div id="header">
-      <div id="div-logo">
-        <img
-          src="./assets/Logo1.svg"
-          alt=""
-          width="70"
-          height="70"
-          style="filter: opacity(0.7) drop-shadow(0 0 0 #2e2d4d)"
-        />
-        <div id="slogan">
-          <h1>NetSalud</h1>
-          <h2>La salud a tus manos</h2>
+  <div class="general-div">
+    <div class="header column">
+      <div class="row sub-header1">
+        <div class="row div-logo">
+          <img src="./assets/Logo.svg" alt="" width="70" height="70" />
+          <div class="slogan column">
+            <h1>NetSalud</h1>
+            <h2>La salud a tus manos</h2>
+          </div>
         </div>
+        <div><h2 class="perfil">Perfil Auxiliar</h2></div>
+        <div><h2 class="c_s">Cerrar Sesión</h2></div>
       </div>
-      <div><h2 id="perfil">Perfil Auxiliar</h2></div>
-      <div><h2 id="c_s">Cerrar Sesión</h2></div>
-      <nav>
-        <button v-if="is_auth" v-on:click="loadHome">Inicio</button>
-        <button v-if="is_auth" v-on:click="loadPatientRecord">
-          RegistroPaciente
-        </button>
-        <button v-if="is_auth" v-on:click="loaddoctorRecord">
-          RegistroMedico
-        </button>
-        <button v-if="is_auth" v-on:click="loadFamilyRecord">
-          RegistroFamiliar
-        </button>
-        <button v-if="is_auth" v-on:click="loadPatientConsult">
-          ConsultarPaciente
-        </button>
-        <button v-if="is_auth" v-on:click="logOut">Cerrar Sesión</button>
+      <nav class="row">
+        <button v-on:click="loadHome">Inicio</button>
+        <button v-on:click="loadPatientRecord">Registro Paciente</button>
+        <button v-on:click="loaddoctorRecord">Registro Medico</button>
+        <button v-on:click="loadFamilyRecord">Registro Familiar</button>
+        <button v-on:click="loadPatientConsult">Consultar Paciente</button>
       </nav>
     </div>
+    <div class="main-component">
+      <router-view></router-view>
+    </div>
+    <footer>Copyright 2022 by Damasco. All Rights Reserved.</footer>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: kanit;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: left;
-  color: #2e2d4d;
-  line-height: 0.3;
-  padding: 10px;
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap");
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 30px;
   font-family: "Kanit";
-}
-#perfil {
-  width: 800px;
-  height: 56px;
-  font-style: normal;
   font-weight: 400;
-  display: flex;
-  align-items: flex-end;
+}
+.general-div {
+  width: 100%;
+  margin: 0%;
+  overflow: hidden;
+}
+.perfil {
+  font-style: oblique;
   justify-content: center;
   color: #db5461;
+  font-size: 50px;
+  height: 80px;
 }
-#c_s {
+.c_s {
   color: #8aa29e;
   display: flex;
-  height: 56px;
+  align-items: right;
+  align-items: flex-end;
+  text-decoration-line: underline;
+  margin-left: 170px;
+}
+.c_s:hover {
+  color: #db5461;
+  pointer-events: auto;
+}
+
+.header {
+  width: 100vw;
   align-items: center;
 }
 
-#header {
-  flex-direction: row !important;
-  display: flex !important;
+.sub-header1 {
+  width: 95%;
+  height: 90px;
+  padding: 0px 2.5%;
   justify-content: space-between;
+  align-items: center;
 }
-#div-logo {
+
+.div-logo {
   flex-direction: row !important;
   display: flex !important;
 }
-#slogan {
+.slogan {
   margin-left: 10px;
+  font-family: "Kanit";
+  display: flex;
+  color: #2e2d4d;
+  line-height: 0%;
+  justify-content: center;
 }
 nav {
-  padding: 30px;
+  width: 95%;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+nav button {
+  width: 15%;
+  color: #e3f2fd;
+  background: #8aa29e;
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 4px 20px;
+  font-size: 20px;
+  font-family: "Kanit";
+}
+nav button:hover {
+  color: #e3f2fd;
+  background: #db5461;
+  border: 1px solid #e5e7e9;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+footer {
+  background-color: #8aa29e;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 95%;
+  bottom: 0;
+  height: 60px;
+  color: #e3f2fd;
+  left: 0%;
+  padding: 0px 2.5%;
 }
 </style>
