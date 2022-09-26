@@ -3,7 +3,7 @@
 <template>
   <div class="containerhome">
     <div class="Auxiliar">
-      <div class="texto" style="color: #2e2d4d">Bienvenido al perfil de auxiliar</div>
+      <div class="texto" >Bienvenido al perfil de auxiliar</div>
     </div>
   </div>
 </template>
