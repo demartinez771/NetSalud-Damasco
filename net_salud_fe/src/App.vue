@@ -7,6 +7,15 @@ export default {
     loadPatientRecord: function () {
       this.$router.push({ name: "patientRecord" });
     },
+    loadDoctorRecord: function () {
+      this.$router.push({ name: "doctorRecord" });
+    },
+    loadFamilyRecord: function () {
+      this.$router.push({ name: "familyRecord" });
+    },
+    loadPatientConsult: function () {
+      this.$router.push({ name: "patientConsult" });
+    },
   },
 };
 </script>
@@ -28,7 +37,7 @@ export default {
       <nav class="row">
         <button v-on:click="loadHome">Inicio</button>
         <button v-on:click="loadPatientRecord">Registro Paciente</button>
-        <button v-on:click="loaddoctorRecord">Registro Medico</button>
+        <button v-on:click="loadDoctorRecord">Registro Medico</button>
         <button v-on:click="loadFamilyRecord">Registro Familiar</button>
         <button v-on:click="loadPatientConsult">Consultar Paciente</button>
       </nav>
@@ -106,6 +115,9 @@ h2 {
   color: #2e2d4d;
   line-height: 0%;
   justify-content: center;
+}
+.main-component{
+ 
 }
 nav {
   width: 95%;
