@@ -7,7 +7,7 @@
         type="number"
         id="id"
         name="tipo"
-        placeholder="Numero de identificación"
+        placeholder="Documento de identificacion"
       />
 
       
@@ -15,16 +15,25 @@
         type="text"
         id="name"
         name="user_name"
-        placeholder="Nombres familiar"
+        placeholder="Parentesco"
       />
+      
+      <input type="email" id="name" name="user_name" placeholder="Correo electronico" />
+      
+
       <input
         type="text"
-        id="lastName"
-        name="user_lastname"
-        placeholder="Apellidos familiar"
+        id="name"
+        name="user_name"
+        placeholder="Username del Paciente"
       />
-      <input type="email" id="name" name="user_name" placeholder="Correo electronico" />
-      <input type="tel" id="name" name="user_name" placeholder="Celular" />
+
+      <input
+        type="text"
+        id="name"
+        name="user_name"
+        placeholder="Documento del paciente"
+      />
      
       <button v-on:click="loadRecord">Registrar</button>
     </form>
