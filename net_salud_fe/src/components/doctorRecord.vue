@@ -9,6 +9,14 @@
         name="tipo"
         placeholder="Numero de identificación"
       />
+
+      <input
+        type="date"
+        id="name"
+        name="user_name"
+        placeholder="Fecha de nacimiento"
+      />
+
       <input
         type="text"
         id="name"
@@ -21,17 +29,12 @@
         name="user_lastname"
         placeholder="Apellidos medico"
       />
+      
       <input
-        type="date"
+        type="text"
         id="name"
         name="user_name"
-        placeholder="Fecha de nacimiento"
-      />
-      <input
-        type="date"
-        id="name"
-        name="user_name"
-        placeholder="Fecha de nacimiento"
+        placeholder="Especialidad medico"
       />
 
 

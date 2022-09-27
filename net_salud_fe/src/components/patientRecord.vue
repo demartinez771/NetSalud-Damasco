@@ -9,6 +9,14 @@
         name="tipo"
         placeholder="Numero de identificación"
       />
+
+      <input
+        type="date"
+        id="name"
+        name="user_name"
+        placeholder="Fecha de nacimiento"
+      />
+      
       <input
         type="text"
         id="name"
@@ -21,14 +29,9 @@
         name="user_lastname"
         placeholder="Apellidos paciente"
       />
-      <input
-        type="date"
-        id="name"
-        name="user_name"
-        placeholder="Fecha de nacimiento"
-      />
-      <input type="tel" id="name" name="user_name" placeholder="Celular" />
+      <input type="text" id="name" name="user_name" placeholder="Ciudad" />
       <input type="text" id="name" name="user_name" placeholder="Dirección" />
+      <input type="tel" id="name" name="user_name" placeholder="Celular" />
       <input type="text" id="name" name="user_name" placeholder="Genero" />
       <button v-on:click="loadRecord">Registrar</button>
     </form>

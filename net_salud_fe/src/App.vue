@@ -97,7 +97,7 @@ h2 {
 }
 
 .sub-header1 {
-  width: 95%;
+  width: 90%;
   height: 90px;
   padding: 0px 2.5%;
   justify-content: space-between;
