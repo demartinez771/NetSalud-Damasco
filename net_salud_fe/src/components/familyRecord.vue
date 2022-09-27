@@ -29,7 +29,7 @@
       />
 
       <input
-        type="text"
+        type="number"
         id="name"
         name="user_name"
         placeholder="Documento del paciente"

@@ -4,33 +4,20 @@
   <div id="rp" class="registro-paciente">
     <form class="column">      
       <input
-        type="text"
-        id="id"
-        name="tipo"
-        placeholder="Username"
-      />
-
-      <input
-        type="text"
-        id="id"
-        name= "tipo"
-        placeholder="password"
-      />
-      
-      <input
         type="number"
         id="id"
         name="tipo"
-        placeholder="Nombre paciente"
+        placeholder="Documento de identidad"
       />
-      
+
       <input
         type="date"
-        id="name"
-        name="user_name"
-        placeholder="Apellido paciente"
+        id="id"
+        name= "tipo"
+        placeholder="Fecha de nacimiento"
       />
       
+    
       <input
         type="text"
         id="name"
@@ -42,6 +29,20 @@
         id="lastName"
         name="user_lastname"
         placeholder="Direccion"
+      />
+
+      <input
+        type="text"
+        id="id"
+        name="tipo"
+        placeholder="Username"
+      />
+
+      <input
+        type="number"
+        id="id"
+        name="tipo"
+        placeholder="Documento de identidad Personal Salud"
       />
 
      
