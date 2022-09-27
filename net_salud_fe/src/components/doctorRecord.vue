@@ -56,7 +56,7 @@
   flex-direction: column;
 }
 
-.registro-paciente {
+.registro-medico {
   margin-top: 50px;
   padding: 0%;
   height: 100%;

@@ -2,37 +2,49 @@
 
 <template>
   <div id="rp" class="registro-paciente">
-    <form class="column">
+    <form class="column">      
+      <input
+        type="text"
+        id="id"
+        name="tipo"
+        placeholder="Username"
+      />
+
+      <input
+        type="text"
+        id="id"
+        name= "tipo"
+        placeholder="password"
+      />
+      
       <input
         type="number"
         id="id"
         name="tipo"
-        placeholder="Numero de identificación"
+        placeholder="Nombre paciente"
       />
-
+      
       <input
         type="date"
         id="name"
         name="user_name"
-        placeholder="Fecha de nacimiento"
+        placeholder="Apellido paciente"
       />
       
       <input
         type="text"
         id="name"
         name="user_name"
-        placeholder="Nombres paciente"
+        placeholder="Ciudad"
       />
       <input
         type="text"
         id="lastName"
         name="user_lastname"
-        placeholder="Apellidos paciente"
+        placeholder="Direccion"
       />
-      <input type="text" id="name" name="user_name" placeholder="Ciudad" />
-      <input type="text" id="name" name="user_name" placeholder="Dirección" />
-      <input type="tel" id="name" name="user_name" placeholder="Celular" />
-      <input type="text" id="name" name="user_name" placeholder="Genero" />
+
+     
       <button v-on:click="loadRecord">Registrar</button>
     </form>
   </div>
