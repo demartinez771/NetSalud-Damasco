@@ -25,7 +25,7 @@
         type="text"
         id="name"
         name="user_name"
-        placeholder="Username del Paciente"
+        placeholder="Username"
       />
 
       <input

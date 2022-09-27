@@ -7,40 +7,30 @@
         type="number"
         id="id"
         name="tipo"
-        placeholder="Numero de identificación"
-      />
-
-      <input
-        type="date"
-        id="name"
-        name="user_name"
-        placeholder="Fecha de nacimiento"
+        placeholder="Documento de identificación"
       />
 
       <input
         type="text"
         id="name"
         name="user_name"
-        placeholder="Nombres medico"
+        placeholder="Rol"
+      />
+
+      <input
+        type="text"
+        id="name"
+        name="user_name"
+        placeholder="Especialidad"
       />
       <input
         type="text"
         id="lastName"
         name="user_lastname"
-        placeholder="Apellidos medico"
+        placeholder="Username"
       />
       
-      <input
-        type="text"
-        id="name"
-        name="user_name"
-        placeholder="Especialidad medico"
-      />
-
-
-      <input type="tel" id="name" name="user_name" placeholder="Celular" />
-      <input type="text" id="name" name="user_name" placeholder="Dirección" />
-      <input type="text" id="name" name="user_name" placeholder="Genero" />
+      
       <button v-on:click="loadRecord">Registrar</button>
     </form>
   </div>

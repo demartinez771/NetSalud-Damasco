@@ -28,7 +28,7 @@
         type="text"
         id="lastName"
         name="user_lastname"
-        placeholder="Direccion"
+        placeholder="Dirección"
       />
 
       <input
