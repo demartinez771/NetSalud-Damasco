@@ -13,13 +13,13 @@
         type="text"
         id="name"
         name="user_name"
-        placeholder="Nombres paciente"
+        placeholder="Nombres medico"
       />
       <input
         type="text"
         id="lastName"
         name="user_lastname"
-        placeholder="Apellidos paciente"
+        placeholder="Apellidos medico"
       />
       <input
         type="date"
@@ -27,6 +27,14 @@
         name="user_name"
         placeholder="Fecha de nacimiento"
       />
+      <input
+        type="date"
+        id="name"
+        name="user_name"
+        placeholder="Fecha de nacimiento"
+      />
+
+
       <input type="tel" id="name" name="user_name" placeholder="Celular" />
       <input type="text" id="name" name="user_name" placeholder="Dirección" />
       <input type="text" id="name" name="user_name" placeholder="Genero" />
