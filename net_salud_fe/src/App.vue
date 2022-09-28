@@ -16,6 +16,9 @@ export default {
     loadPatientConsult: function () {
       this.$router.push({ name: "patientConsult" });
     },
+    loadUser: function () {
+      this.$router.push({ name: "user" });
+    },
   },
 };
 </script>
@@ -31,7 +34,7 @@ export default {
             <h2>La salud a tus manos</h2>
           </div>
         </div>
-        <div><h2 class="perfil">Perfil Auxiliar</h2></div>
+        <div><h2 class="perfil">Bienvenido!</h2></div>
         <div><h2 class="c_s">Cerrar Sesión</h2></div>
       </div>
       <nav class="row">
@@ -40,6 +43,7 @@ export default {
         <button v-on:click="loadDoctorRecord">Registro Medico</button>
         <button v-on:click="loadFamilyRecord">Registro Familiar</button>
         <button v-on:click="loadPatientConsult">Consultar Paciente</button>
+        <button v-on:click="loadUser">Usuario</button>
       </nav>
     </div>
     <div class="main-component">

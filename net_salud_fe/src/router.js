@@ -5,6 +5,7 @@ import home from "./components/home";
 import doctorRecord from "./components/doctorRecord";
 import familyRecord from "./components/familyRecord";
 import patientConsult from "./components/patientConsult";
+import user from "./components/user"
 const routes = [
  
   {
@@ -31,6 +32,11 @@ const routes = [
     path: "/auxiliar/consultar-paciente",
     name: "patientConsult",
     component: patientConsult,
+  },
+  {
+    path: "/auxiliar/usuario",
+    name: "user",
+    component: user,
   },
 ];
 const router = createRouter({
