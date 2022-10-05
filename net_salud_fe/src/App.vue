@@ -1,5 +1,11 @@
 <script>
 export default {
+
+  data: function () {
+    return {
+      is_auth: false
+    }
+  },
   methods: {
     loadHome: function () {
       this.$router.push({ name: "home" });
@@ -19,8 +25,12 @@ export default {
     loadUser: function () {
       this.$router.push({ name: "user" });
     },
+    loadLogIn: function () {
+      this.$router.push({ name: "logIn" });
+    },
   },
-};
+
+}
 </script>
 
 <template>
@@ -34,16 +44,21 @@ export default {
             <h2>La salud a tus manos</h2>
           </div>
         </div>
-        <div><h2 class="perfil">Bienvenido!</h2></div>
-        <div><h2 class="c_s">Cerrar Sesión</h2></div>
+        <div>
+          <h2 class="perfil">Bienvenido!</h2>
+        </div>
+        <div>
+          <!--<h2 class="c_s">Cerrar Sesión</h2>-->
+        </div>
       </div>
       <nav class="row">
-        <button v-on:click="loadHome">Inicio</button>
-        <button v-on:click="loadPatientRecord">Registro Paciente</button>
-        <button v-on:click="loadDoctorRecord">Registro Medico</button>
-        <button v-on:click="loadFamilyRecord">Registro Familiar</button>
-        <button v-on:click="loadPatientConsult">Consultar Paciente</button>
-        <button v-on:click="loadUser">Usuario</button>
+        <!--<button v-on:click="loadHome">Inicio</button>-->
+        <!--<button v-if="loadPatientRecord">Registro Paciente</button>-->
+        <!--<button v-if="loadDoctorRecord">Registro Medico</button>-->
+        <!--<button v-if="loadFamilyRecord">Registro Familiar</button>-->
+        <!--<button v-if="loadPatientConsult">Consultar Paciente</button>-->
+        <button v-on:click="loadUser">Registro de usuario</button>
+        <button v-on:click="loadLogIn">Login</button>
       </nav>
     </div>
     <div class="main-component">
@@ -60,6 +75,7 @@ export default {
   display: flex;
   flex-direction: row;
 }
+
 .column {
   display: flex;
   flex-direction: column;
@@ -70,26 +86,30 @@ h2 {
   font-family: "Kanit";
   font-weight: 400;
 }
+
 .general-div {
   width: 100%;
   margin: 0%;
   overflow: hidden;
 }
+
 .perfil {
   font-style: oblique;
   justify-content: center;
   color: #db5461;
-  font-size: 50px;
-  height: 80px;
+  font-size: 20px;
+  height: 70px;
 }
+
 .c_s {
   color: #8aa29e;
   display: flex;
   align-items: right;
   align-items: flex-end;
   text-decoration-line: underline;
-  margin-left: 170px;
+  margin-left: 130px;
 }
+
 .c_s:hover {
   color: #db5461;
   pointer-events: auto;
@@ -112,6 +132,7 @@ h2 {
   flex-direction: row !important;
   display: flex !important;
 }
+
 .slogan {
   margin-left: 10px;
   font-family: "Kanit";
@@ -120,15 +141,16 @@ h2 {
   line-height: 0%;
   justify-content: center;
 }
-.main-component{
- 
-}
+
+.main-component {}
+
 nav {
   width: 95%;
-  justify-content: space-between;
+  justify-content: right;
   padding-left: 10px;
   padding-right: 10px;
 }
+
 nav button {
   width: 15%;
   color: #e3f2fd;
@@ -139,6 +161,7 @@ nav button {
   font-size: 20px;
   font-family: "Kanit";
 }
+
 nav button:hover {
   color: #e3f2fd;
   background: #db5461;

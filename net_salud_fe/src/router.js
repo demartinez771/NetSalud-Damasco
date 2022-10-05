@@ -5,9 +5,9 @@ import home from "./components/home";
 import doctorRecord from "./components/doctorRecord";
 import familyRecord from "./components/familyRecord";
 import patientConsult from "./components/patientConsult";
-import user from "./components/user"
+import logIn from "./components/logIn";
+import user from "./components/user";
 const routes = [
- 
   {
     path: "/auxiliar/inicio",
     name: "home",
@@ -34,7 +34,12 @@ const routes = [
     component: patientConsult,
   },
   {
-    path: "/auxiliar/usuario",
+    path: "/auxiliar/logIn",
+    name: "logIn",
+    component: logIn,
+  },
+  {
+    path: "/auxiliar/usuario/",
     name: "user",
     component: user,
   },

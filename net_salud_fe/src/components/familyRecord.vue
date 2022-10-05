@@ -1,53 +1,92 @@
-<script></script>
+<script>
+import axios from 'axios';
 
+export default {
+  data: function () {
+    return {
+      familiar: {
+        documento: "",
+        parentesco: "",
+        correo: "",
+        username: "",
+        familiar_documento: "",
+      }
+    }
+  },
+
+  methods: {
+    registroFamiliar: function () {
+      axios.post(
+        "https://netsalud-be.herokuapp.com/familiar/",
+        this.familiar,
+        { headers: {} }
+      )
+
+        .then((result) => {
+          alert("Familiar Registrado exitosamente!")
+          this.$emit('registroFamiliar')
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Upps No se ha podido registrar el familiar :(")
+        })
+    }
+  }
+}
+
+</script>
+  
 <template>
   <div id="rp" class="registro-familiar">
-    <form class="column">
-      <input
-        type="number"
-        id="id"
-        name="tipo"
-        placeholder="Documento de identificacion"
-      />
+    <main>
+      <form v-on:submit.prevent="registroFamiliar">
+        <div>
+          <label>Documento:</label>
+          <input type="text" v-model="familiar.documento" id="documento" required>
+        </div>
 
-      
-      <input
-        type="text"
-        id="name"
-        name="user_name"
-        placeholder="Parentesco"
-      />
-      
-      <input type="email" id="name" name="user_name" placeholder="Correo electronico" />
-      
+        <div>
+          <label>Parentesco:</label>
+          <input type="text" v-model="familiar.parentesco" id="parentesco" required>
+        </div>
 
-      <input
-        type="text"
-        id="name"
-        name="user_name"
-        placeholder="Username"
-      />
+        <div>
+          <label>Correo:</label>
+          <input type="text" v-model="familiar.correo" id="correo" required>
+        </div>
 
-      <input
-        type="number"
-        id="name"
-        name="user_name"
-        placeholder="Documento del paciente"
-      />
-     
-      <button v-on:click="loadRecord">Registrar</button>
-    </form>
+        <div>
+          <label>Username:</label>
+          <input type="text" v-model="familiar.username" id="username" required>
+        </div>
+
+        <div>
+          <label>Documento del Familiar:</label>
+          <input type="text" v-model="familiar.familiar_documento" id="familiar_documento" required>
+        </div>
+
+        <button type="submit">Registrar</button>
+
+      </form>
+    </main>
+
+
   </div>
 </template>
-
+  
 <style>
-.row {
-  display: flex;
-  flex-direction: row;
-}
-.column {
-  display: flex;
-  flex-direction: column;
+form label {
+  font-size: 17px;
+  display: inline-flexbox;
+  width: 130px;
+  font-family: "Kanit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 10px;
+  color: #0d0e0d;
 }
 
 .registro-familiar {
@@ -61,8 +100,11 @@
 }
 
 form {
-  width: 747px;
-  height: 648px;
+  width: 400px;
+  height: 600px;
+  margin: 0 0 0 40px;
+  flex-direction: column;
+  padding: 10px;
   display: flex;
   background: #e3f2fd;
   border-radius: 20px;
@@ -71,9 +113,11 @@ form {
   border: 5px solid #2e2d4d;
 }
 
-input {
-  width: 400px;
+
+form input {
+  width: 300px;
   height: 40px;
+  display: block;
   background: #fafafa;
   font-family: "Kanit";
   font-style: normal;
@@ -82,8 +126,9 @@ input {
   line-height: 45px;
   text-align: center;
   border-radius: 10px;
-  color: #8aa29e;
+  color: #050505;
 }
+
 button {
   width: 300px;
   height: 50px;

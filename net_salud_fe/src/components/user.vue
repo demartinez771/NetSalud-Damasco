@@ -1,76 +1,112 @@
-<script></script>
+<script>
+import axios from 'axios';
 
+export default {
+  data: function () {
+    return {
+      usuario: {
+        username: "",
+        password: "",
+        perfil: "",
+        nombre: "",
+        apellido: "",
+        celular: "",
+        genero: "",
+      }
+    }
+  },
+
+  methods: {
+    processRegistroUsuario: function () {
+      axios.post(
+        "http://127.0.0.1:8000/usuario/",
+        this.usuario,
+        { headers: {} }
+      )
+        .then((result) => {
+          alert("Registro Usuario exitosamente");
+          this.$emit('processRegistroUsuario')
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Error: Fallo en el Registro Usuario");
+        })
+    }
+  }
+}
+
+</script>
+    
 <template>
-  <div id="rp" class="usuario">
-    <form class="column">      
-      <input
-        type="text"
-        id="username"
-        name="tipo"
-        placeholder="username"
-      />
+  <div id="rp" class="registro-usuario">
+    <main>
+      <form v-on:submit.prevent="registroUsuario">
+        <div>
+          <label>Username:</label>
+          <input type="text" v-model="usuario.username" id="username" required>
+        </div>
 
-      <input
-        type="text"
-        id="pass"
-        name="tipo"
-        placeholder="password"
-      />
+        <div>
+          <label>Password:</label>
+          <input type="password" v-model="usuario.password" id="password" required>
+        </div>
 
-      <select>
-        <option value="psalud">Personal de salud</option>
-        <option value="paciente">Paciente</option>
-        <option value="familiar">Familiar</option>
-        <option value="auxiliar">Auxiliar</option>
-      </select>
+        <div>
+          <label>Perfil:</label>
+          <select v-model="usuario.perfil" id="perfil">
+            <option value="Personal de salud">Personal de salud</option>
+            <option value="Paciente">Paciente</option>
+            <option value="Auxiliar">Auxiliar</option>
+          </select>
+        </div>
 
-      <input
-        type="text"
-        id="name"
-        name="tipo"
-        placeholder="Nombre"
-      />
-      
-      <input
-        type="text"
-        id="lastname"
-        name="user_name"
-        placeholder="Apellido"
-      />
-      
-      <input
-        type="tel"
-        id="tel"
-        name="user_name"
-        minlength="7" maxlength="12"
-        placeholder="Celular"
-      />
-      
-      <input
-        type="text"
-        id="lastname"
-        name="user_name"
-        placeholder="Genero"
-        maxlength="1"
-      />
+        <div>
+          <label>Nombre:</label>
+          <input type="text" v-model="usuario.nombre" id="nombre" required>
+        </div>
 
-     
-      <button v-on:click="loadRecord">Registrar</button>
-    </form>
+        <div>
+          <label>Apellido:</label>
+          <input type="text" v-model="usuario.apellido" id="apellido" required>
+        </div>
+
+        <div>
+          <label>Celular:</label>
+          <input type="tel" v-model="usuario.celular" id="celular" required minlength="7" maxlength="12">
+        </div>
+
+        <div>
+          <label>Genero:</label>
+          <select v-model="usuario.genero" id="genero">
+            <option value="M">M</option>
+            <option value="F">F</option>
+          </select>
+          <br>
+        </div>
+
+        <button type="submit">Registrar</button>
+
+      </form>
+    </main>
+
+
   </div>
 </template>
-
+    
 <style>
-.row {
-  display: flex;
-  flex-direction: row;
-}
-.column {
-  display: flex;
-  flex-direction: column;
+form label {
+  display: inline-flexbox;
+  width: 130px;
+  font-family: "Kanit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px;
+  color: #0d0e0d;
 }
 
-.usuario {
+.registro-usuario {
   margin-top: 50px;
   padding: 0%;
   height: 100%;
@@ -81,8 +117,11 @@
 }
 
 form {
-  width: 747px;
-  height: 648px;
+  width: 400px;
+  height: 600px;
+  margin: 0 0 0 40px;
+  flex-direction: column;
+  padding: 10px;
   display: flex;
   background: #e3f2fd;
   border-radius: 20px;
@@ -91,9 +130,10 @@ form {
   border: 5px solid #2e2d4d;
 }
 
-input {
-  width: 400px;
-  height: 40px;
+select {
+  width: 300px;
+  height: 30px;
+  display: block;
   background: #fafafa;
   font-family: "Kanit";
   font-style: normal;
@@ -102,33 +142,35 @@ input {
   line-height: 45px;
   text-align: center;
   border-radius: 10px;
-  color: #8aa29e;
+  color: #070707;
 }
-select {
-    width: 410px;
-    height: 45px;
-    background: #fafafa;
-    font-family: "Kanit";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 45px;
-    text-align: center;
-    border-radius: 10px;
-    color: #8aa29e;
-  }
-button {
+
+form input {
   width: 300px;
-  height: 50px;
-  background: #2e2d4d;
-  border-radius: 10px;
+  height: 25px;
+  display: block;
+  background: #fafafa;
   font-family: "Kanit";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 45px;
   text-align: center;
+  border-radius: 10px;
+  color: #050505;
+}
 
+button {
+  width: 300px;
+  height: 30px;
+  background: #2e2d4d;
+  border-radius: 10px;
+  font-family: "Kanit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 0px;
+  text-align: center;
   color: #fafafa;
 }
 </style>

@@ -1,52 +1,89 @@
-<script></script>
+<script>
+import axios from 'axios';
 
+export default {
+  data: function () {
+    return {
+      PersonalSalud: {
+        documento: "",
+        rol: "",
+        especialidad: "",
+        username: "",
+      }
+    }
+  },
+
+  methods: {
+    registroPSalud: function () {
+      axios.post(
+        "https://netsalud-be.herokuapp.com/pSalud/",
+        this.pSalud,
+        { headers: {} }
+      )
+
+        .then((result) => {
+          alert("Personal de Salud Registrado exitosamente!")
+          this.$emit('registroPSalud')
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Upps No se ha podido registrar el Personal de Salud :(")
+        })
+    }
+  }
+}
+
+</script>
+    
 <template>
-  <div id="rp" class="registro-medico">
-    <form class="column">
-      <input
-        type="number"
-        id="id"
-        name="tipo"
-        placeholder="Documento de identificación"
-      />
+  <div id="rp" class="registro-pSalud">
+    <main>
+      <form v-on:submit.prevent="registroPSalud">
+        <div>
+          <label>Documento:</label>
+          <input type="text" v-model="PersonalSalud.documento" id="documento" required>
+        </div>
 
-      <input
-        type="text"
-        id="name"
-        name="user_name"
-        placeholder="Rol"
-      />
+        <div>
+          <label>Rol:</label>
+          <input type="text" v-model="PersonalSalud.rol" id="rol" required>
+        </div>
 
-      <input
-        type="text"
-        id="name"
-        name="user_name"
-        placeholder="Especialidad"
-      />
-      <input
-        type="text"
-        id="lastName"
-        name="user_lastname"
-        placeholder="Username"
-      />
-      
-      
-      <button v-on:click="loadRecord">Registrar</button>
-    </form>
+        <div>
+          <label>Especialidad:</label>
+          <input type="text" v-model="PersonalSalud.especialidad" id="especialidad" required>
+        </div>
+
+        <div>
+          <label>Username:</label>
+          <input type="text" v-model="PersonalSalud.username" id="username" required>
+        </div>
+
+        <button type="submit">Registrar</button>
+
+      </form>
+    </main>
+
+
   </div>
 </template>
-
+    
 <style>
-.row {
-  display: flex;
-  flex-direction: row;
-}
-.column {
-  display: flex;
-  flex-direction: column;
+form label {
+  font-size: 17px;
+  display: inline-flexbox;
+  width: 110px;
+  font-family: "Kanit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 10px;
+  color: #0d0e0d;
 }
 
-.registro-medico {
+.registro-pSalud {
   margin-top: 50px;
   padding: 0%;
   height: 100%;
@@ -57,8 +94,11 @@
 }
 
 form {
-  width: 747px;
-  height: 648px;
+  width: 400px;
+  height: 600px;
+  margin: 0 0 0 40px;
+  flex-direction: column;
+  padding: 10px;
   display: flex;
   background: #e3f2fd;
   border-radius: 20px;
@@ -67,9 +107,11 @@ form {
   border: 5px solid #2e2d4d;
 }
 
-input {
-  width: 400px;
+
+form input {
+  width: 300px;
   height: 40px;
+  display: block;
   background: #fafafa;
   font-family: "Kanit";
   font-style: normal;
@@ -78,8 +120,9 @@ input {
   line-height: 45px;
   text-align: center;
   border-radius: 10px;
-  color: #8aa29e;
+  color: #050505;
 }
+
 button {
   width: 300px;
   height: 50px;
