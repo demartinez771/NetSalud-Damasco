@@ -36,8 +36,8 @@
 }
 
 form {
-  width: 747px;
-  height: 648px;
+  width: 400px;
+  height: 600px;
   display: flex;
   background: #e3f2fd;
   border-radius: 20px;
