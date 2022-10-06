@@ -17,7 +17,7 @@ export default {
   methods: {
     registroFamiliar: function () {
       axios.post(
-        "https://netsalud-be.herokuapp.com/familiar/",
+        "https://netsalud-be-123.herokuapp.com/familiar/",
         this.familiar,
         { headers: {} }
       )

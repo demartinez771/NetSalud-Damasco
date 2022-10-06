@@ -16,7 +16,7 @@ export default {
   methods: {
     registroPSalud: function () {
       axios.post(
-        "https://netsalud-be.herokuapp.com/pSalud/",
+        "https://netsalud-be-123.herokuapp.com/pSalud/",
         this.pSalud,
         { headers: {} }
       )
