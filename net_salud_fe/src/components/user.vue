@@ -1,5 +1,5 @@
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   data: function () {
@@ -17,38 +17,50 @@ export default {
   },
 
   methods: {
-    processRegistroUsuario: function () {
-      axios.post(
-        "http://127.0.0.1:8000/usuario/",
-        this.usuario,
-        { headers: {} }
-      )
+    registroUsuario: function () {
+      axios
+        .post("https://netsalud-be-123.herokuapp.com/usuario/", this.usuario, {
+          headers: {},
+        },console.log(this.usuario))
         .then((result) => {
-          alert("Registro Usuario exitosamente");
-          this.$emit('processRegistroUsuario')
-        })
+          let dataSignUp = {
+            username: this.usuario.username,
+            token_acess: result.data.access,
+            token_refresh: result.data.refresh,
+          };
+          this.$emit("registroUsuario", dataSignUp),alert("Usuario Registrado exitosamente!")
+        },console.log("entro al then"))
         .catch((error) => {
           console.log(error);
           alert("Error: Fallo en el Registro Usuario");
-        })
+        });
     }
   }
 }
-
 </script>
-    
+
 <template>
   <div id="rp" class="registro-usuario">
     <main>
       <form v-on:submit.prevent="registroUsuario">
         <div>
           <label>Username:</label>
-          <input type="text" v-model="usuario.username" id="username" required>
+          <input
+            type="text"
+            v-model="usuario.username"
+            id="username"
+            required
+          />
         </div>
 
         <div>
           <label>Password:</label>
-          <input type="password" v-model="usuario.password" id="password" required>
+          <input
+            type="password"
+            v-model="usuario.password"
+            id="password"
+            required
+          />
         </div>
 
         <div>
@@ -62,17 +74,29 @@ export default {
 
         <div>
           <label>Nombre:</label>
-          <input type="text" v-model="usuario.nombre" id="nombre" required>
+          <input type="text" v-model="usuario.nombre" id="nombre" required />
         </div>
 
         <div>
           <label>Apellido:</label>
-          <input type="text" v-model="usuario.apellido" id="apellido" required>
+          <input
+            type="text"
+            v-model="usuario.apellido"
+            id="apellido"
+            required
+          />
         </div>
 
         <div>
           <label>Celular:</label>
-          <input type="tel" v-model="usuario.celular" id="celular" required minlength="7" maxlength="12">
+          <input
+            type="tel"
+            v-model="usuario.celular"
+            id="celular"
+            required
+            minlength="7"
+            maxlength="12"
+          />
         </div>
 
         <div>
@@ -81,18 +105,15 @@ export default {
             <option value="M">M</option>
             <option value="F">F</option>
           </select>
-          <br>
+          <br />
         </div>
 
         <button type="submit">Registrar</button>
-
       </form>
     </main>
-
-
   </div>
 </template>
-    
+
 <style>
 form label {
   display: inline-flexbox;

@@ -1,15 +1,15 @@
 <template>
     <div id="rp" class="registro-familiar">
         <main>
-            <form v-on:submit.prevent="registroFamiliar">
+            <form v-on:submit.prevent="logIn">
                 <div>
                     <label>Username:</label>
-                    <input type="text" v-model="user.username" id="username" required>
+                    <input type="text" v-model="usuario.username" id="username" required>
                 </div>
 
                 <div>
                     <label>Password:</label>
-                    <input type="password" v-model="user.password" id="password" required>
+                    <input type="password" v-model="usuario.password" id="password" required>
                 </div>
 
                 <button type="submit">Iniciar Sesión</button>
@@ -24,7 +24,7 @@ import axios from 'axios';
 export default {
     data: function () {
         return {
-            user: {
+            usuario: {
                 username: "",
                 password: ""
             }
@@ -32,12 +32,12 @@ export default {
     },
     methods: {
         logIn: function () {
-            axios.post("https://netsalud-be.herokuapp.com/login/",
-                this.user, { header: {} })
+            axios.post("https://netsalud-be-123.herokuapp.com/login/",
+                this.usuario, { header: {} })
                 .then((result) => {
                     console.log(result);
                     let dataLogIn = {
-                        username: this.user.username,
+                        username: this.usuario.username,
                         token_access: result.data.access,
                         token_refresh: result.data.refresh,
                     }
