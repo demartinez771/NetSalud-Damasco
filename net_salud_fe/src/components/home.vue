@@ -1,4 +1,68 @@
-<script></script>
+<script>
+  import jwt_decode from 'jwt-decode';
+import axios from 'axios';
+
+export default {
+    name: "home",
+
+    data: function () {
+        return {
+        username: "",
+        password: "",
+        perfil: "",
+        nombre: "",
+        apellido: "",
+        celular: "",
+        genero: "",
+        }
+    },
+
+    methods: {
+        getData: async function () {
+            if (localStorage.getItem("token_access") === null || localStorage.getItem("token_refresh") === null) {
+                this.$emit('logOut');
+                return;
+            }
+
+            await this.verifyToken();
+            let token = localStorage.getItem("token_access");
+            //let username = jwt_decode(token).username.toString();
+            axios.get(`https://netsalud-be-123.herokuapp.com/usuario/`,
+
+                { headers: { 'Authorization': `Bearer ${token}` } })
+                .then((result) => {
+                    this.username = result.data.username;
+                    this.password = result.data.password;
+                    this.perfil = result.data.perfil;
+                    this.nombre = result.data.nombre;
+                    this.apellido = result.data.apellido;
+                    this.celular = result.data.celular;
+                    this.genero = result.data.genero;
+                    this.loaded = true;
+                })
+
+                .catch((error) => {
+                    this.$emit('logOut');
+                    console.log(error);
+                });
+        },
+
+        verifyToken: function () {
+            return axios.post("https://netsalud-be-123.herokuapp.com/refresh/", { refresh: localStorage.getItem("token_refresh") }, { headers: {} })
+                .then((result) => {
+                    localStorage.setItem("token_access", result.data.access);
+                })
+                .catch(() => {
+                    this.$emit('logOut');
+                });
+        }
+    },
+
+    created: async function () {
+        this.getData();
+    },
+}
+</script>
 
 <template>
   <div class="containerhome">

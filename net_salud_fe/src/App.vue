@@ -1,20 +1,16 @@
 <script>
 export default {
-
   data: function () {
     return {
-      is_auth: false
-    }
+      is_auth: false,
+    };
   },
   methods: {
-
     verifyAuth: function () {
       this.is_auth = localStorage.getItem("isAuth") || false;
 
-      if (this.is_auth == false)
-        this.$router.push({ name: "logIn" });
-      else
-        this.$router.push({ name: "home" });
+      if (this.is_auth == false) this.$router.push({ name: "logIn" });
+      else this.$router.push({ name: "home" });
     },
 
     loadHome: function () {
@@ -36,7 +32,7 @@ export default {
       this.$router.push({ name: "user" });
     },
     loadLogIn: function () {
-      this.$router.push({ name: "logIn" });   
+      this.$router.push({ name: "logIn" });
     },
 
     logOut: function () {
@@ -59,15 +55,17 @@ export default {
     },
 
     completedRegistrarMedico: function (data) {
-      alert("Registro de Medico Existoso")
+      alert("Registro de Medico Existoso");
     },
 
-    completedRegistrarPaciente: function (data) { },
+    completedRegistrarPaciente: function (data) {},
 
-    completedRegistrarFamiliar: function (data) { }
+    completedRegistrarFamiliar: function (data) {},
   },
-
-}
+  created: function () {
+    this.verifyAuth();
+  },
+};
 </script>
 
 <template>
@@ -85,24 +83,40 @@ export default {
           <h2 class="perfil">Bienvenido!</h2>
         </div>
         <div>
-          <button class="c_s" v-if="is_auth" v-on:click="logOut">Cerrar Sesión</button>
+          <button class="c_s" v-if="!is_auth" v-on:click="logOut">
+            Cerrar Sesión
+          </button>
         </div>
       </div>
       <nav class="row">
-        <button v-if="is_auth" v-on:click="loadHome">Inicio</button>
-        <button v-if="is_auth" v-on:click="loadPatientRecord">Registro Paciente</button>
-        <button v-if="is_auth" v-on:click="loadDoctorRecord">Registro Medico</button>
-        <button v-if="is_auth" v-on:click="loadFamilyRecord">Registro Familiar</button>
-        <button v-if="is_auth" v-on:click="loadPatientConsult">Consultar Paciente</button>
-        <button v-if="!is_auth" v-on:click="loadUser">Registro de usuario</button>
-        <button v-if="!is_auth" v-on:click="loadLogIn">Login</button>
+        <button v-if="!is_auth" v-on:click="loadHome">Inicio</button>
+        <button v-if="!is_auth" v-on:click="loadPatientRecord">
+          Registro Paciente
+        </button>
+        <button v-if="!is_auth" v-on:click="loadDoctorRecord">
+          Registro Medico
+        </button>
+        <button v-if="!is_auth" v-on:click="loadFamilyRecord">
+          Registro Familiar
+        </button>
+        <button v-if="!is_auth" v-on:click="loadPatientConsult">
+          Consultar Paciente
+        </button>
+        <button v-if="is_auth" v-on:click="loadUser">
+          Registro de usuario
+        </button>
+        <button v-if="is_auth" v-on:click="loadLogIn">Login</button>
       </nav>
     </div>
     <div class="main-component">
-      <router-view v-on:completedLogIn="completedLogIn" v-on:completedRegistroUsuario="completedRegistroUsuario"
-      v-on:completedRegistrarFamiliar="completedRegistrarFamiliar"
-      v-on:completedRegistrarPaciente="completedRegistrarPaciente"
-      v-on:completedRegistrarMedico="completedRegistrarMedico" v-on:logOut="logOut"></router-view>
+      <router-view
+        v-on:completedLogIn="completedLogIn"
+        v-on:completedRegistroUsuario="completedRegistroUsuario"
+        v-on:completedRegistrarFamiliar="completedRegistrarFamiliar"
+        v-on:completedRegistrarPaciente="completedRegistrarPaciente"
+        v-on:completedRegistrarMedico="completedRegistrarMedico"
+        v-on:logOut="logOut"
+      ></router-view>
     </div>
     <footer>Copyright 2022 by Damasco. All Rights Reserved.</footer>
   </div>
@@ -182,7 +196,8 @@ h2 {
   justify-content: center;
 }
 
-.main-component {}
+.main-component {
+}
 
 nav {
   width: 95%;

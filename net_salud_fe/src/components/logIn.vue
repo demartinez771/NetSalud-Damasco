@@ -41,8 +41,12 @@ export default {
                         token_access: result.data.access,
                         token_refresh: result.data.refresh,
                     }
-                    this.$emit('completedLogIn', dataLogIn)
-                }).catch((error) => {
+                    this.$emit(newFunction(), dataLogIn)
+
+                  function newFunction() {
+                    return 'completedLogIn';
+                  }
+                },alert("ingreso correctamente")).catch((error) => {
                     if (error.response.status == "401")
                         alert("ERROR 401: Credenciales Incorrectas");
                 }
